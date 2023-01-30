@@ -7,21 +7,19 @@ class MyHome extends StatelessWidget{
     return DefaultTabController(
 
       length: 4, 
+      initialIndex: 1,
 
       child: Scaffold(
         appBar: AppBar(
           title: const Text("WhatsApp"),
-          actions: [ActionButtons(), ],
-          bottom:  TabBar(
-            labelStyle: const TextStyle(fontSize: 20),
-            labelPadding: EdgeInsets.symmetric(vertical: 10),
+          actions: [ActionButtons()],
+
+          bottom: const TabBar(
+            labelStyle: TextStyle(fontSize: 20),
+            labelPadding: EdgeInsets.only(bottom: 10),
             
-            
-            tabs: [ 
-              Container(
-              child: const Icon(Icons.photo_camera),
-              padding: EdgeInsets.zero,
-              ),
+            tabs:  [ 
+              Icon(Icons.photo_camera),
               Text("Chats"),
               Text("Status"),
               Text("Calls"),
@@ -29,13 +27,15 @@ class MyHome extends StatelessWidget{
           ),
         ),
         
-          body: Directionality(
-            textDirection: TextDirection.ltr,
-            child: ListView(
-              children: []
-            )
+          body: const TabBarView(
+            children: [
+              Text("Camera"),
+              Text("Chats"),
+              Text("Status"),
+              Text("Calls"),
+            ]
           )
-      )
-    );
+          )
+      );
   }
 }
