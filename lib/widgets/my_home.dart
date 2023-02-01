@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import "action_buttons.dart";
+import "../pages/camera.dart";
+import "../pages/chats_page.dart";
 
 class MyHome extends StatelessWidget{
   @override
@@ -10,12 +12,13 @@ class MyHome extends StatelessWidget{
       initialIndex: 1,
 
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
           title: const Text("WhatsApp"),
           actions: [ActionButtons()],
 
           bottom: const TabBar(
-            labelStyle: TextStyle(fontSize: 20),
+            labelStyle:  TextStyle(fontSize: 20),
             labelPadding: EdgeInsets.only(bottom: 10),
             
             tabs:  [ 
@@ -27,10 +30,10 @@ class MyHome extends StatelessWidget{
           ),
         ),
         
-          body: const TabBarView(
+          body: TabBarView(
             children: [
-              Text("Camera"),
-              Text("Chats"),
+              CameraPage(),
+              Chats(),
               Text("Status"),
               Text("Calls"),
             ]
