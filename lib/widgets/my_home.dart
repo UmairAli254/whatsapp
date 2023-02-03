@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "../pages/status_page.dart";
 import "action_buttons.dart";
 import "../pages/camera.dart";
 import "../pages/chats_page.dart";
@@ -34,7 +35,7 @@ class MyHome extends StatelessWidget{
             children: [
               CameraPage(),
               Chats(),
-              Text("Status"),
+              StatusPage(),
               Text("Calls"),
             ]
           )

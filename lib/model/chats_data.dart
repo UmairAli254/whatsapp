@@ -21,7 +21,7 @@ List all_chats = <Chats_Data>[
       avatar: "images/doraemon.jpg"),
   Chats_Data(
     name: "Tun Tun Mossi",
-    msg: "Laddu kaho gy.?",
+    msg: "Laddu khao gy.?",
     time: "6:30",
     avatar: "images/tuntun.jpg",
   ),
