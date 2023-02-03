@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import '../model/chats_data.dart';
+import 'single_chat_page.dart';
 
 class Chats extends StatefulWidget{
   @override
@@ -32,7 +33,10 @@ class ChatsState extends State<Chats>{
           trailing: Text(all_chats[i].time),
 
           onTap: (){
-            print("Tapped!");
+            Navigator.push(context, MaterialPageRoute(
+              builder: (BuildContext context)=> SingleChatPage()
+            ));
+
           }
 
         );
