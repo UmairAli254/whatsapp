@@ -26,9 +26,12 @@ class ChatsState extends State<Chats>{
           fontWeight: FontWeight.w500),
           ),
 
-          subtitle: Text(all_chats[i].msg,
-           style: const TextStyle(fontSize: 17)
-           ),
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 3),
+            child: Text(all_chats[i].msg,
+             style: const TextStyle(fontSize: 17)
+             ),
+          ),
 
           trailing: Text(all_chats[i].time),
 

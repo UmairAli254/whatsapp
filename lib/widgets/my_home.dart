@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "../pages/call_page.dart";
 import "../pages/status_page.dart";
 import "action_buttons.dart";
 import "../pages/camera.dart";
@@ -10,7 +11,7 @@ class MyHome extends StatelessWidget{
     return DefaultTabController(
 
       length: 4, 
-      initialIndex: 1,
+      initialIndex: 3,
 
       child: Scaffold(
         resizeToAvoidBottomInset: true,
@@ -20,7 +21,7 @@ class MyHome extends StatelessWidget{
 
           bottom: const TabBar(
             labelStyle:  TextStyle(fontSize: 20),
-            labelPadding: EdgeInsets.only(bottom: 10),
+            labelPadding: EdgeInsets.all(10),
             
             tabs:  [ 
               Icon(Icons.photo_camera),
@@ -36,7 +37,7 @@ class MyHome extends StatelessWidget{
               CameraPage(),
               Chats(),
               StatusPage(),
-              Text("Calls"),
+              CallPage(),
             ]
           )
           )

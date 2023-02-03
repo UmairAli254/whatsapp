@@ -29,10 +29,13 @@ class StatusPageState extends State<StatusPage>{
               )
           )
           ,
-          subtitle: Text(
-            "Tap to add status update",
-            style: const TextStyle(fontSize: 17)
-            ),
+          subtitle: Padding(
+            padding: EdgeInsets.only(top: 2),
+            child: Text(
+              "Tap to add status update",
+              style: const TextStyle(fontSize: 17)
+              ),
+          ),
         ),
         Container(
           alignment: const Alignment(-1, -1),
@@ -56,13 +59,16 @@ class StatusPageState extends State<StatusPage>{
             style: const TextStyle(
               fontSize: 20, 
               fontWeight: FontWeight.w500
-              )
+              ) 
           )
           ,
-          subtitle: Text(
-           StatusData[i]["time"].toString(),
-            style: const TextStyle(fontSize: 17)
-            )
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 3),
+            child: Text(
+             StatusData[i]["time"].toString(),
+              style: const TextStyle(fontSize: 17)
+              ),
+          )
         );
               
           },
