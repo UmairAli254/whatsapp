@@ -5,42 +5,80 @@ import "action_buttons.dart";
 import "../pages/camera.dart";
 import "../pages/chats_page.dart";
 
-class MyHome extends StatelessWidget{
+class MyHome extends StatefulWidget {
   @override
-  Widget build(BuildContext context){
+  State<MyHome> createState() => _MyHomeState();
+}
+
+class _MyHomeState extends State<MyHome> {
+  var _selectedIndex = 1;
+  @override
+  Widget build(BuildContext context) {
     return DefaultTabController(
+      length: 4,
+      initialIndex: 1,
 
-      length: 4, 
-      initialIndex: 3,
+      child: Builder(builder: (context) {
+        return Scaffold(
+          resizeToAvoidBottomInset: true,
+          appBar: AppBar(
+            title: const Text("WhatsApp"),
+            actions: [ActionButtons()],
+            bottom:  TabBar(
+                labelStyle: TextStyle(fontSize: 20),
+                labelPadding: EdgeInsets.all(10),
 
-      child: Scaffold(
-        resizeToAvoidBottomInset: true,
-        appBar: AppBar(
-          title: const Text("WhatsApp"),
-          actions: [ActionButtons()],
+                 onTap: (index) {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                },
 
-          bottom: const TabBar(
-            labelStyle:  TextStyle(fontSize: 20),
-            labelPadding: EdgeInsets.all(10),
-            
-            tabs:  [ 
-              Icon(Icons.photo_camera),
-              Text("Chats"),
-              Text("Status"),
-              Text("Calls"),
-            ]
+                tabs: const [
+                  Icon(Icons.photo_camera),
+                  Text("Chats"),
+                  Text("Status"),
+                  Text("Calls"),
+                ]),
           ),
-        ),
-        
           body: TabBarView(
-            children: [
-              CameraPage(),
-              Chats(),
-              StatusPage(),
-              CallPage(),
-            ]
-          )
-          )
-      );
+              children: [CameraPage(), Chats(), StatusPage(), CallPage()]),
+          floatingActionButton: _fAB(_selectedIndex),
+        );
+      }),
+    );
   }
+_fAB(ind) {
+
+    if(ind == 1){
+      return FloatingActionButton(
+      onPressed: (){},
+      backgroundColor: Colors.green,
+      child:  const Icon(
+           Icons.chat,
+           size: 27,
+        ),
+      );
+    }else if(ind == 2){
+      return FloatingActionButton(
+      onPressed: (){},
+      backgroundColor: Colors.green,
+      child:  const Icon(
+           Icons.photo_camera,
+           size: 27,
+        ),
+      );
+    } else if(ind == 3){
+      return FloatingActionButton(
+      onPressed: (){},
+      backgroundColor: Colors.green,
+      child:  const Icon(
+           Icons.phone,
+           size: 27,
+        ),
+      );
+    } 
+
+  }//Funcion ends here
+  
 }
